@@ -1,0 +1,176 @@
+% SOC TEMPLATE by KryKom
+% Licencováno pro Tebe pod MIT Licencí
+
+\documentclass{Template/Thesis}
+
+% ================================= IMPORTY ================================= % 
+
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{natbib}
+\usepackage{newfloat}
+\usepackage{parskip}
+\usepackage{pgfkeys}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tcolorbox}
+\usepackage{tgtermes}
+\usepackage{titlesec}
+\usepackage[nottoc]{tocbibind}
+\usepackage{xcolor}
+
+
+% ================================= NASTAVENÍ ================================= % 
+
+\tcbuselibrary{listings,skins}
+
+% české uvozovky
+\usepackage{csquotes}
+\DeclareQuoteAlias{german}{czech}
+\MakeOuterQuote{"}
+
+% rozměry
+\newgeometry{
+    top = 2.5cm, 
+    bottom = 2.5cm, 
+    left = 2.5cm, 
+    right = 2.5cm
+}
+
+% mezera mezi odstavci
+\setlength{\parskip}{12pt}
+
+% nadpisy
+\titleformat{\chapter}{\fontsize{18pt}{21.6pt}\scshape\bfseries}{\thechapter}{18pt}{}
+\titleformat{\section}{\fontsize{18pt}{21.6pt}\bfseries}{\thesection}{18pt}{}
+\titleformat{\subsection}{\fontsize{14pt}{16.8pt}\bfseries}{\thesubsection}{14pt}{}
+
+% nastavení popisků
+\captionsetup{font = footnotesize}
+
+% float kódu a rovnice
+\DeclareFloatingEnvironment[fileext = lol]{code}
+\DeclareFloatingEnvironment[fileext = lol]{rovnice}
+
+% zobrazení popisku kódu
+\captionsetup[code]{%
+    name = Ukázka kódu,
+}
+
+% zobrazení popisku rovnice
+\def\equationautorefname{Rovnice}
+
+% nastavení umisťování tabulek
+\makeatletter
+\renewcommand{\fps@table}{h}
+\makeatother
+
+
+% ================================= INFO O PRÁCI ================================= % 
+
+% přepiš podle vlastních potřeb
+\titlecz{název práce}
+\titleen{work name}
+\author{tvoje jméno}
+\field{18}
+\school{Oficiální název, ulice č. p., PSČ město}
+\mentor{mentor}
+\mentorstatement{doc. PhDr. Jany Novákové, Ph.D.}
+\region{kraj}
+\city{město}
+\created{rok vzniku}
+
+
+% ================================= DOKUMENT ================================= % 
+
+\begin{document}
+
+% nějaký příkazy a nastavení
+\include{Template/Colors.tex}
+\include{Template/Commands.tex}
+
+% Nastavení číslování prostředí "lstlistings".
+\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+
+\maketitle
+
+
+% ================================= LEGALNÍ BOBKY ================================= % 
+
+% pokud jsi nepoužil(a) AI
+\makecopyrightstatement{V~Praze}{\ainotused}
+
+% pokud jsi použil(a) AI (například, dej tam co chceš, ale odkomentuj to :D)
+% \makecopyrightstatement{V~Praze}{\aiused{gemini.google.com}{reformulace textu}}
+
+
+% ================================= PODĚKOVÁNÍ ================================= % 
+
+\makethanks{
+    %sem vlož poděkování
+}
+
+\pagestyle{empty}
+
+
+% ================================= ANOTACE ================================= % 
+
+\section*{Anotace}
+
+% sem vlož svoji anotaci
+
+
+\section*{Klíčová slova}
+
+% sem vlož klíčová slova oddělená středníkem
+
+
+\vspace{20mm}
+
+\section*{Annotation}
+
+% sem vlož svoji anotaci v angličtině
+
+
+\section*{Keywords}
+
+% sem vlož klíčová slova v angličtině oddělená středníkem
+
+
+\newpage
+\pagestyle{plain}
+
+
+% Obsah
+
+\titleformat{\section}{\fontsize{16pt}{19.2pt}\bfseries}{\thesection}{16pt}{}
+
+\tableofcontents
+
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\newpage
+
+% ================================= TA SAMOTNÁ PRÁCE ================================= %
+
+\importch{Intro.tex}
+\importch{Kapitola.tex}
+
+% =================================       KONEC      ================================= %
+
+\listoffigures
+\listoftables
+
+\renewcommand\lstlistlistingname{Ukázky kódu}
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Ukázky kódu}
+
+\end{document}
