@@ -1,0 +1,44 @@
+name: Compile LaTeX and release PDF
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: Main.tex
+
+      - name: Show generated files
+        run: ls -la
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: pdf-${{ github.run_id }}
+          release_name: LaTeX build ${{ github.run_id }}
+          body: Generated PDF from Main.tex
+          draft: false
+          prerelease: false
+
+      - name: Upload PDF to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./Main.pdf
+          asset_name: Main.pdf
+          asset_content_type: application/pdf
