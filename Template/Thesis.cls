@@ -28,6 +28,12 @@
 \def\figureautorefname{Obrázek}
 \def\tableautorefname{Tabulka}
 \def\codeautorefname{Ukázka kódu}
+\def\equationautorefname{Rovnice}
+\def\chaptername{Kapitola}
+
+\addto\extrasczech{%
+  \renewcommand{\chapterautorefname}{Kapitola}%
+}
 
 % proměnné
 \def\titlecz#1{\def\@titlecz{#1}}
@@ -38,7 +44,6 @@
 \def\city#1{\def\@city{#1}}
 \def\mentor#1{\def\@mentor{#1}}
 \def\created#1{\def\@created{#1}}
-\def\mentorstatement#1{\def\@mentorstatement{#1}}
 \def\placefooter#1{\def\@placefooter{#1}}
 
 \newcommand{\field}[1]{%
@@ -68,7 +73,6 @@
 \titleen{}
 \region{\@region}
 \placefooter{\@city - \the\year}
-\mentorstatement{\@mentor}
 \created{\the\year}
 
 \renewcommand{\maketitle}{%

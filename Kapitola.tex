@@ -1,48 +1,106 @@
 \newpage
 
 \chapter{Kapitola}
+\label{ch:kapitola}
 
-Bla bla bla..
+Tato kapitola popisuje jak vkládat jednotlivé prvky do dokumentu.
+Prvním prvkem je nadpis kapitoly, jenž lze vložit pomocí \cinline{\bs chapter}.
+Dovnitř vložíte název kapitoly.
 
 \section{Podnadpis}
 
+Nadpis podkapitoly lze vložit pomocí příkazu \cinline{\bs section}, 
+do kterého jako parametr vložíte název podkapitoly.
+
 \subsection{Podpodnadpis}
 
-Tady pod tímhle textem je \autoref{img:opice}.
+Funguje to podobně jako u podkapitoly. 
+Nadpis vytvoříte pomocí \cinline{\bs subsection}.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale = 0.1]{Assets/Image.png}
-    \caption{Opice}
-    \label{img:opice}
-\end{figure}
+Další levely kapitol se nepoužívají.
+
+\section{Obrázky}
+
+Obrázky lze vkládat pomocí příkazu \cinline{\bs img}.
+První parametr je cesta k obrázku, druhý je velikost obrázku, 
+třetí je label a čtvrtý popisek. Referenci na obrázek vytvoříte
+pomocí příkazu \cinline{\bs autoref}, do kterého vložíte label obrázku. 
+Příkladem je \autoref{img:opice}.
+
+\img{Assets/Image.png}{0.08}{img:opice}{Opice}
+
+\section{Poznámky pod čarou}
+
+Poznámku pod čarou vložíte pomocí příkazu \cinline{\bs footnote}.
+Do něj vložíte samotnou poznámku. Například:
 
 V tomhle textu je potřeba něco\footnote{nebo taky ne} vysvětlit...
 
-A tady níže lze spatřit \autoref{t:tabulka}.
+\section{Tabulky}
 
-\begin{table}[h!]
-    \centering
-    \caption{Pozdrav s indexováním od 0}
-    \label{t:tabulka}
-    \begin{tabular}{|l|l|}
-        \hline
-        \B{Sloupec 0} & \B{Sloupec 1} \\ \hline
-        Ahoj & světe \\ \hline
-        zdravím & z \\ \hline
-        této & tabulky \\ \hline
-    \end{tabular}
-\end{table}
+V \TeX u mají tabulky dost podivnou syntax. Snažil jsem se ji trošku
+zjednodušit pomocí příkazu \cinline{\bs tbl}. První parametr obsahuje 
+label, druhý popisek, třetí definici sloupců a čtvrtý data.
 
-A tady někde v tomto textu lze napsat pomocí \TeX u jakýsi blok
-kódu pomocí \cinline{\textbackslash cinline}.
+Data se vkládají poněkud podivně. Například řádky se oddělují pomocí
+\cinline{\bs \bs ~\bs hline} (\cinline{\bs hline} vytvoří horizontální čáru).
+Jednotlivá políčka se oddělují pomocí \cinline{\&}.
 
-Pokud si ovšem pečlivě prohlédneme ukázku \autoref{c:hovno}, zjistíme, že to je hovno. 
+Definici tabulky \autoref{t:tbl} si můžeme prohlédnout na 
+výstřižku \autoref{c:table}.
+
+\input{Snippets/table.tex}
+
+\cinput{Snippets/table.tex}{tex}{c:table}{Definice tabulky}
+
+A tady níže lze spatřit jinak stylovanou tabulku \autoref{t:tabulka}.
+
+\tbl{t:tabulka}{Pozdrav}{l||l}{
+    \B{Hello} & \B{World} \\ \hline
+    Ahoj    & z       \\ \hline
+    světe   & této    \\ \hline
+    zdravím & tabulky \\
+}
+
+\section{Kód}
+
+Pomocí \cinline{\bs cinline} můžeme doprostřed textu vkládat znaky kódu. 
+Pokud ale chceme vložit větší kus kódu učiníme tak pomocí \cinline{\bs cinput}.
+První parametr je cesta k souboru, druhý je jazyk, třetí label a čtvrtý popisek.
+Příklad využití můžeme vidět na ukázce \autoref{c:cinput} \footnote{je to rekurzivní :)}
+nebo také \autoref{c:hovno}.
+
+\input{Snippets/cinput.tex}
 
 \cinput{Snippets/is3.py}{python}{c:hovno}{Hovno}
 
-Dále tady také lze nají rovnice, jedním příkladem může být \autoref{e:wut}.
+% Dalším způsobem jak vkládat kód je pomocí \cinline{\bs csnippet}.
+% První parametr je jazyk, druhý je label, třetí popisek a čtvrtý je 
+% kód samotný. Příklad využití můžete vidět na ukázce 
 
-\eq{e:wut}{2 + 2 = 5}
+% \csnippet{csharp}{c:csharp}{Csharp}{%
+%     Console.WriteLine\(\"Hello!\"\)\;
+% }
+
+\section{Rovnice}
+
+Dále také lze vkládat rovnice pomocí \cinline{\bs eq}. 
+Příkladem může být \autoref{e:wut} jejíž definici lze 
+spatřit na ukázce \autoref{c:eq}.
+
+\input{Snippets/eq.tex}
+
+\cinput{Snippets/eq.tex}{tex}{c:eq}{Definice rovnice z 1984}
+
+\section{Citace}
+
+Pokud chceme citovate nějaký zdroj použijeme \cinline{\bs cite}.
+Například pokud bych chtěl citovat myšlenku z 1984, že 
+někdy se 2 a 2 rovná 5 a někdy zase 3 \cite{nef}, napíšu za myšlenku 
+\cinline{\bs cite\{nef\}} (\cinline{nef} se jmenuje 1984 v 
+\cinline{Ref.bib}). Zdroj v \cinline{Ref.bib} je definován stejně jako na
+ukázce \autoref{c:bib}. Se syntaxí zdrojů poradí \LaTeX ~Workshop ve VS Code.
+
+\cinput{Snippets/1984.bib}{bib}{c:bib}{1984 jako zdroj}
 
 \newpage

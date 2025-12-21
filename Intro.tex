@@ -2,6 +2,59 @@
 
 \chapter{Úvod}
 
-Sem si dej nějaký úvod či co...
+Ahoj a vítej v tomto úvodu do této šablony pro práce SOČ.
+Začátkem bych chtěl podotknout, že doufám, že ti tato šablona pomůže 
+a zjednoduší ti práci s \LaTeX em. V případě, že jsem ti pomohl,
+bych tě také chtěl poprosit, jestli bys mi nedal(a) na repo 
+hvězdičku, jako takové poděkování.
+
+V této jen v rychlosti představím, jak tuto šablonu používat a 
+jak nastavovat různé věci. Jak vkládat různé tabulky, obrázky a podobně
+se dovíte až v kapitole \autoref{ch:kapitola}.
+
+\section{Main.tex}
+
+Hlavním souborem dokumentu je \cinline{Main.tex}. Ten obsahuje float
+dokumentu a do něj také budete vkládat veškeré kapitoly (jako například 
+\cinline{Intro.tex} nebo \cinline{Kapitola.tex}). Místo na vkládání vypadá
+asi tak, jak je zobrazeno na ukázce \autoref{c:chapters}. Kapitolu lze
+vložit poměrně jednoduše pomocí příkazu \cinline{\textbackslash importch}, 
+do kterého jako parametr vložíte název souboru, ve kterém je kapitola
+uložena.
+
+\cinput{Snippets/chapters.tex}{tex}{c:chapters}{Místo pro vkládání kapitol}
+
+V \cinline{Main.tex} se také nachází nastavení informací o práci. To 
+je zobrazeno na ukázce \autoref{c:workinfo}. 
+
+\cinput{Snippets/workinfo.tex}{tex}{c:workinfo}{Místo pro nastavení informací o práci}
+
+Hned za touto částí se nachází začátek dokumentu. Ještě o pár řádků dál
+se nachází prohlášení o všech možných věcech (přečtěte si to!!!).
+Tam si nastavíte jestli jste používali nebo nepoužívali AI (pokud ano tak 
+jaký model a za jakým účelem).
+
+Pak už hned následuje poděkování a anotace a potom je 
+už zmíněné místo na vkládání kapitol.
+
+\section{Složka Template}
+
+\cinline{Thesis.cls} definuje příkazy pro šablonu ale také 
+nastavuje zobrazování referencí v textu.
+
+\cinline{Commands.tex} obsahuje užitečné příkazy jako je například
+\cinline{\bs cinline} pro bloky kódu uvnitř textu, 
+\cinline{\bs cinput} pro vkládání kódu ze souborů, 
+\cinline{\bs csnippet} pro vkládání kódu, 
+\cinline{\bs bs} pro vložení zpětného lomítka, 
+\cinline{\bs B} pro tučný text a také 
+\cinline{\bs It} pro text psaný kurzívou.
+
+\cinline{Colors.tex} obsahuje definice několika používaných barev.
+
+\section{Ref.bib}
+
+\cinline{Ref.bib} je seznam literatury. Více o tom jak vkládat
+zdroje se dozvíte například \href{https://cs.overleaf.com/learn/latex/Bibliography\_management\_with\_biblatex}{zde}.
 
 \newpage

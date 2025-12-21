@@ -6,6 +6,8 @@
 % ================================= IMPORTY ================================= % 
 
 \usepackage{amsmath}
+\usepackage[czech]{babel}
+\usepackage{biblatex}
 \usepackage{caption}
 \usepackage{csquotes}
 \usepackage{enumitem}
@@ -15,7 +17,6 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{minted}
-\usepackage{natbib}
 \usepackage{newfloat}
 \usepackage{parskip}
 \usepackage{pgfkeys}
@@ -65,13 +66,13 @@
     name = Ukázka kódu,
 }
 
-% zobrazení popisku rovnice
-\def\equationautorefname{Rovnice}
-
 % nastavení umisťování tabulek
 \makeatletter
 \renewcommand{\fps@table}{h}
 \makeatother
+
+% nastavení seznamu literatury
+\addbibresource{Ref.bib}
 
 
 % ================================= INFO O PRÁCI ================================= % 
@@ -83,7 +84,6 @@
 \field{18}
 \school{Oficiální název, ulice č. p., PSČ město}
 \mentor{mentor}
-\mentorstatement{doc. PhDr. Jany Novákové, Ph.D.}
 \region{kraj}
 \city{město}
 \created{rok vzniku}
@@ -172,5 +172,7 @@
 \renewcommand\lstlistlistingname{Ukázky kódu}
 \lstlistoflistings
 \addcontentsline{toc}{chapter}{Ukázky kódu}
+
+\printbibliography
 
 \end{document}
