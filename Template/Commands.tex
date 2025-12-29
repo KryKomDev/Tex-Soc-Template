@@ -32,12 +32,7 @@
 }
 
 \newcommand{\cinline}[1]{%
-    \tcbset{
-  		on line,
-  		boxsep=2pt, left=0pt,right=0pt,top=0pt,bottom=0pt,
-  		colframe=white, colback=crefb
-	}
-	\tcbox{\ttfamily{\small{#1}}}
+    \colorbox{crefb}{\ttfamily{\small{#1}}}
 }
 
 \newcommand{\cinput}[4]{%
@@ -86,3 +81,22 @@
         \end{tabular}
     \end{table}
 }
+
+
+\renewcommand\theadfont{\bfseries}
+
+\newcommand{\HT}[1]{\thead{#1}}
+
+\newcommand{\ul}[1]{
+    \begin{itemize}[topsep=0pt,itemsep=0ex,partopsep=1ex,parsep=1ex]
+        #1
+    \end{itemize}
+}
+
+\newcommand{\ol}[1]{
+    \begin{enumerate}[topsep=0pt,itemsep=0ex,partopsep=1ex,parsep=1ex]
+        #1
+    \end{enumerate}
+}
+
+\newcommand{\MakeApendicies}[1]{\input{#1}}

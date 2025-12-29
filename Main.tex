@@ -6,6 +6,7 @@
 % ================================= IMPORTY ================================= % 
 
 \usepackage{amsmath}
+\usepackage{appendix}
 \usepackage[czech]{babel}
 \usepackage{biblatex}
 \usepackage{caption}
@@ -16,6 +17,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{makecell}
 \usepackage{minted}
 \usepackage{newfloat}
 \usepackage{parskip}
@@ -73,6 +75,8 @@
 
 % nastavení seznamu literatury
 \addbibresource{Ref.bib}
+
+\setmintedinline{breaklines=true, breakanywhere=true}
 
 
 % ================================= INFO O PRÁCI ================================= % 
@@ -174,5 +178,7 @@
 \addcontentsline{toc}{chapter}{Ukázky kódu}
 
 \printbibliography
+
+\MakeApendicies{Apendicies.tex}
 
 \end{document}

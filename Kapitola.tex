@@ -56,10 +56,10 @@ výstřižku \autoref{c:table}.
 A tady níže lze spatřit jinak stylovanou tabulku \autoref{t:tabulka}.
 
 \tbl{t:tabulka}{Pozdrav}{l||l}{
-    \B{Hello} & \B{World} \\ \hline
-    Ahoj    & z       \\ \hline
-    světe   & této    \\ \hline
-    zdravím & tabulky \\
+    \HT{Hello} & \HT{World} \\ \hline
+    Ahoj       & z          \\ \hline
+    světe      & této       \\ \hline
+    zdravím    & tabulky    \\
 }
 
 \section{Kód}
@@ -99,8 +99,40 @@ Například pokud bych chtěl citovat myšlenku z 1984, že
 někdy se 2 a 2 rovná 5 a někdy zase 3 \cite{nef}, napíšu za myšlenku 
 \cinline{\bs cite\{nef\}} (\cinline{nef} se jmenuje 1984 v 
 \cinline{Ref.bib}). Zdroj v \cinline{Ref.bib} je definován stejně jako na
-ukázce \autoref{c:bib}. Se syntaxí zdrojů poradí \LaTeX ~Workshop ve VS Code.
+ukázce \autoref{c:bib}, který je celý v přílohách v ukázce 
+\autoref{c:large-code-block}. Se syntaxí zdrojů poradí \LaTeX 
+~Workshop ve VS Code.
 
 \cinput{Snippets/1984.bib}{bib}{c:bib}{1984 jako zdroj}
+
+\section{Přílohy}
+
+Abychom mohli přidat přílohu, musíme obrátit zraky na soubor 
+\cinline{Apendicies.tex}. Do tohoto souboru můžeme vkládat všechny možné 
+ústřižky kódu, obrázky apod. Můžeme je také rozdělit na kapitoly pomocí 
+\cinline{\bs chapter}. Každá kapitola má taky vlastní písmenko, které se
+mění automaticky.
+
+\section{Seznamy}
+
+Seznamy můžeme vytvářet buď pomocí \cinline{ul} (Unordered list)
+anebo \cinline{ol} (Ordered list). Ordered list vytvoří seřazený seznam, 
+tedy seznam s číslami, narozdíl od Unordered list, který má pouze tečky.
+Abychom oddělili jednotlivé položky, vložíme na začátek řádku s položkou 
+\cinline{\bs item}.
+
+Tady je seřazený seznam:
+\ol{
+    \item něco zaprvé
+    \item něco zadruhé
+    \item něco zatřetí
+}
+
+Tady je neseřazený seznam:
+\ul{
+    \item něco poprvé
+    \item něco podruhé
+    \item něco potřetí 
+}
 
 \newpage
