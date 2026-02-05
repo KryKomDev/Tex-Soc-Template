@@ -1,0 +1,25 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "Build.ps1",
+            "command": "pwsh",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "%WORKSPACE_FOLDER%/Scripts/Build.ps1"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Build.ps1",
+            "tools": [
+                "Build.ps1"
+            ]
+        }
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.view.pdf.viewer": "tab"
+}

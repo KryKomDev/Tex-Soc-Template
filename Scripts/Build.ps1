@@ -1,0 +1,1 @@
+docker run --rm -v "${PWD}:/data" -w "/data" texlive/texlive latexmk -pdf -shell-escape -interaction=nonstopmode -outdir="out" "./Main.tex"

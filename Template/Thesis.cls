@@ -11,6 +11,7 @@
 \RequirePackage[czech]{babel}
 \RequirePackage{graphicx}
 \RequirePackage{tabularx}
+\RequirePackage{titlesec}
 \RequirePackage{array}
 \RequirePackage[bookmarksopen,colorlinks,plainpages=false,linkcolor=black,urlcolor=blue,citecolor=black,filecolor=black,menucolor=black,unicode=true,breaklinks]{hyperref}
 \RequirePackage{csquotes}
@@ -22,17 +23,30 @@
 \marginparsep=12pt
 \linespread{1.15}
 \unitlength=1mm
+\titlespacing{\chapter}{0pt}{25pt}{15pt}
+\titlespacing{\section}{0pt}{20pt}{10pt}
+\titlespacing{\subsection}{0pt}{20pt}{10pt}
 
 % hyperref \autoref názvy
+\def\chaptername{Kapitola}
 \def\sectionautorefname{Kapitola}
+\def\subsectionautorefname{Kapitola}
 \def\figureautorefname{Obrázek}
 \def\tableautorefname{Tabulka}
 \def\codeautorefname{Ukázka kódu}
 \def\equationautorefname{Rovnice}
-\def\chaptername{Kapitola}
+
+% vypnout \autoref názvy
+\def\chaptername{}
+\def\sectionautorefname{}
+\def\subsectionautorefname{}
+\def\figureautorefname{}
+\def\tableautorefname{}
+\def\codeautorefname{}
+\def\equationautorefname{}
 
 \addto\extrasczech{%
-  \renewcommand{\chapterautorefname}{Kapitola}%
+    \renewcommand{\chapterautorefname}{}%
 }
 
 % proměnné
@@ -78,7 +92,6 @@
 \renewcommand{\maketitle}{%
 	\pagestyle{empty}
 
-	\pagestyle{empty}
 	\begin{center}
 	    {\fontsize{18pt}{21.6pt} \textbf{STŘEDOŠKOLSKÁ ODBORNÁ ČINNOST}} \\
 		\vspace{5mm}
@@ -103,6 +116,7 @@
 	\end{spacing}
 
 	\vspace{15mm}
+	\mbox{}
 
 	{\raggedright}
 
@@ -126,7 +140,6 @@
 \newcommand{\makecopyrightstatement}[2]{%
 	\pagestyle{empty}
 
-	~
 	\vfill
 
 	\section*{Prohlášení}
